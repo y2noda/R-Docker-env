@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  rstudio:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: r_env
+    ports:
+      - 8787:8787
+    environment:
+      PASSWORD: 1039
+      TZ: Asia/Tokyo
+    volumes:
+      - ..:/home/rstudio
+    tty: true
+    stdin_open: true
