@@ -1,44 +1,43 @@
 # Dockerfile of writing paper by R Markdown
 
-This is a repository of Dockerfile including packages and add-ins that are useful for writing articles with R Markdown in Rstudio. This Dockerfile is based on rocker/verse. Installing rstan conducted by the method described in antoine-sachet / rocker-ML.
+これは，RstudioでR Markdownを用いて論文執筆を行う際に便利なパッケージやアドインを含めたDockerファイルのリポジトリです。本Dockerファイルは，rocker/verseをベースにしています。
 
-[日本語解説(Japanese)](https://github.com/ykunisato/paper-r/blob/master/README_jp.md)
+作成者は専修大学人間科学部心理学科の国里愛彦です (ykunisato@psy.senshu-u.ac.jp)。エラーや追加してほしいパッケージなどがありましたら，気軽にご連絡ください。
 
-Maintainer is Yoshihiko Kunisato (ykunisato@psy.senshu-u.ac.jp)
+Keywords: 心理学, 認知モデリング，心理学的ネットワーク分析，メタ分析，論文執筆，rstudio, rmarkdown, stan
 
-Keywords: psychology, cognitive science, rstudio, rstan, rmarkdown
+## 使用法
 
-## Usage
+Docker Desktopがインストールされていて，ある程度の通信速度があれば，数分で使用可能です。
 
-1. Install ["Docker Desktop"](https://www.docker.com/products/docker-desktop)
+1.Docker Desktop ( https://www.docker.com/products/docker-desktop )をインストールする。
 
-2. Open "terminal"(Mac) or "Command Prompt"(Windows)
+2.ターミナル（Macの場合。Winはコマンドプロンプト？)を開く
 
-3. Type the following code to pull a Docker container. Change the "password" and "name_of_container" as you like.
-
+3.ターミナルに以下を打ち込んで、コンテナーをrunする(runの前にPullが自動的なされます)。パスワードとコンテナ名はご自身の好きなように設定ください。
 
 **Mac**
 
-
 ```
-docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name name_of_container ykunisato/paper-r
+docker run -e PASSWORD=パスワード -p 8787:8787 -v $(pwd):/home/rstudio -d --name コンテナ名 ykunisato/paper-r
 ```
 or
 
 ```
-docker run -e PASSWORD=password -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name name_of_container ykunisato/paper-r
+docker run -e PASSWORD=パスワード -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name コンテナ名 ykunisato/paper-r
 ```
+
 
 **Windows**
 
 
 ```
-docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name name_of_container ykunisato/paper-r
+docker run -e PASSWORD=パスワード -p 8787:8787 -v "%cd%":/home/rstudio -d --name コンテナ名 ykunisato/paper-r
 ```
 
 
-4. Open the web browser and type "http://localhost:8787/" in the URL bar.
+4.ブラウザを開いて，urlバー（アドレスバー）に，http://localhost:8787/ とタイプする
 
-5. You will see the Rstudio on the web browser. Type rstudio in ID column and password that you set in password column.
+5.ブラウザ上にRstudioが出てくるので，IDにrstudio，パスに上記で設定したパスワードをいれる。
 
-## [List of R packages](https://github.com/ykunisato/paper-r/blob/master/list_packages.md)
+## [インストールされているRパッケージのリスト](https://github.com/ykunisato/paper-r/blob/master/list_packages.md)
